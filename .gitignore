@@ -1,0 +1,62 @@
+# Backend - Java/Maven
+target/
+*.jar
+*.war
+*.ear
+*.class
+.mvn/
+mvnw
+mvnw.cmd
+
+# Frontend - Node/React
+node_modules/
+dist/
+dist-ssr/
+build/
+*.local
+.vite/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.iml
+.project
+.classpath
+.settings/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Docker
+.dockerignore
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*~
+
+# TypeScript
+*.tsbuildinfo
+
+# Package locks (keep only package-lock.json for npm)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
