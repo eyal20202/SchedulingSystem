@@ -1,0 +1,37 @@
+services:
+  # Backend Service
+  - type: web
+    name: scheduling-backend
+    runtime: docker
+    dockerfilePath: backend/Dockerfile
+    dockerContext: backend
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        fromDatabase:
+          name: scheduling-db
+          property: connectionString
+      - key: SPRING_DATASOURCE_USERNAME
+        fromDatabase:
+          name: scheduling-db
+          property: user
+      - key: SPRING_DATASOURCE_PASSWORD
+        fromDatabase:
+          name: scheduling-db
+          property: password
+    healthCheckPath: /api/health
+
+  # Frontend Service
+  - type: web
+    name: scheduling-frontend
+    runtime: docker
+    dockerfilePath: frontend/Dockerfile
+    dockerContext: frontend
+    envVars:
+      - key: VITE_API_BASE_URL
+        value: https://scheduling-backend.onrender.com
+
+# Database
+databases:
+  - name: scheduling-db
+    databaseName: scheduling_db
+    user: scheduling_user
